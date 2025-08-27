@@ -41,7 +41,7 @@ module DocVault
 
         metadata = {
           type: "file",
-          content: content,
+          content: Base64.strict_encode64(content),
           original_filename: file.respond_to?(:original_filename) ? file.original_filename : nil,
           content_type: file.respond_to?(:content_type) ? file.content_type : nil,
           path: file.respond_to?(:path) ? file.path : nil,
@@ -61,7 +61,7 @@ module DocVault
       def deserialize_file(parsed)
         tempfile = Tempfile.new(["doc_vault", extract_extension(parsed)])
         tempfile.binmode
-        tempfile.write(parsed["content"])
+        tempfile.write(Base64.strict_decode64(parsed["content"]))
         tempfile.rewind
 
         # Add metadata as singleton methods if available
