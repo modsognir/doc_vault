@@ -1,7 +1,5 @@
 # DocVault
 
-NOTE: THIS IS IN-DEVELOPMENT SOFTWARE, PLEASE DO NOT USE FOR ANYTHING SENSITIVE
-
 DocVault is a Ruby gem that provides a simple interface for storing and retrieving encrypted data or files in one or multiple SQLite databases.
 
 This gem is useful for ephemeral storage of sensitive data in text or file format that needs to be readily accessible. It enables seperation of data and per-user encryption keys. 
